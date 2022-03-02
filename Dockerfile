@@ -27,7 +27,7 @@ RUN apt-get update && apt-get install -y \
     python-scipy \
     python-pygame \
     git
-    pip install pygame
+   
 
 
 RUN git clone https://github.com/DanielPickens/Phantoms.git
