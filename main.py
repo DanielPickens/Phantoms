@@ -29,7 +29,7 @@ MOON = pygame.transform.scale(pygame.image.load('assets/moon.png'), (300, 220))
 title_font = "Fonts/Aladin-Regular.ttf"
 instructions_font = 'Fonts/BubblegumSans-Regular.ttf'
 
-## message function for about screen
+## message variables for about screen
 phantoms = Message(WIDTH//2 + 50, HEIGHT//2 - 90, 90, "Phantoms", title_font, (255, 255, 255), win)
 left_key = Message(WIDTH//2 + 10, HEIGHT//2 - 90, 20, "Press left arrow key to go left", instructions_font, (255, 255, 255), win)
 right_key = Message(WIDTH//2 + 10, HEIGHT//2 - 65, 20, "Press right arrow key to go right", instructions_font, (255, 255, 255), win)
