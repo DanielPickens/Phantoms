@@ -63,7 +63,7 @@ exit_btn = Button(WIDTH//2 - bwidth//4, HEIGHT//2 + 105, ButtonBG, 0.5, exit, 10
 main_menu_btn = Button(WIDTH//2 - bwidth//4, HEIGHT//2 + 130, ButtonBG, 0.5, main_menu, 20)
 
 
-# takes in a level number and returns a tuple of the level's length and the world data
+
 pygame.mixer.music.load('Sounds/mixkit-complex-desire-1093.mp3')
 pygame.mixer.music.play(loops=-1)
 pygame.mixer.music.set_volume(0.5)
