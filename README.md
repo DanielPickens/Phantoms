@@ -21,10 +21,6 @@ pip install pygame
 ```
 
 ## Usage
-Use the arrow keys to move and jump
-Use the space bar to shoot
-Use the mouse to aim
-
 
 Controls:
 * Left arrow key to go left
