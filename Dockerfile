@@ -4,7 +4,7 @@ MAINTAINER Daniel Pickerns <Daniel@gmail.com>
 
 RUN apt-get update && apt-get install -y \
     mercurial \
-    libav-tools \
+    
     libsdl-image1.2-dev \
     libsdl-mixer1.2-dev \
     libsdl-ttf2.0-dev \
