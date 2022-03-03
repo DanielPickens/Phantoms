@@ -353,7 +353,7 @@ while running:
 						print(p.health)
 					bullet.kill()
 
-		#variable to check if player is dead
+		#if statement that evaluates if player is alive, it will execute the body of health defined if only when the test condition is alive with health <= 40 
 
 		if p.alive:
 			color = (0, 255, 0)
