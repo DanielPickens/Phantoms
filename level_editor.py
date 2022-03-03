@@ -41,13 +41,13 @@ RED = (255, 25, 25)
 
 font = pygame.font.SysFont('Futura', 24)
 
-#empty tile list
+#emptys the world_data tile list
 world_data = []
 for row in range(ROWS):
 	col = [-1] * MAX_COLS
 	world_data.append(col)
 
-# loads images 
+# loads images  for sky, mountain, and ground, calls the declared assets from string parameter
 sky = pygame.transform.scale(pygame.image.load('assets/BG1.png'), (SCREEN_WIDTH, SCREEN_HEIGHT))
 mountain = pygame.transform.scale(pygame.image.load('assets/BG2.png'), (SCREEN_WIDTH, SCREEN_HEIGHT))
 ground = pygame.transform.scale(pygame.image.load('assets/BG3.png'), (SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -116,7 +116,7 @@ right_button = button.Button(SCREEN_WIDTH + 120, SCREEN_HEIGHT - 35, right_img, 
 running = True
 while running:
 	draw_bg()
-	# draw_grid()
+	
 	draw_world()
 
 	# render buttons for tiles
@@ -137,7 +137,7 @@ while running:
 	if scroll_right and scroll < (MAX_COLS * TILE_WIDTH) - SCREEN_WIDTH:
 		scroll += 5 * scroll_speed
 
-	# add new tiles to the world
+	# Adds new tiles to the defined world object
 	pos = pygame.mouse.get_pos()
 	x = ((pos[0] + scroll) // TILE_WIDTH)
 	y = (pos[1] // TILE_HEIGHT)
@@ -182,7 +182,7 @@ while running:
 		pickle.dump(world_data, pickle_out)
 		pickle_out.close()
 	if load_button.draw(win):
-		#load in level data
+		#loads in level data from current_level
 		if os.path.exists(f'levels/level{current_level}_data'):
 			pickle_in = open(f'levels/level{current_level}_data', 'rb')
 			data = pickle.load(pickle_in)
