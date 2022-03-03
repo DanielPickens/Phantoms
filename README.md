@@ -34,6 +34,10 @@ Controls:
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. Steps to contribute:
 
-Please make sure to update tests as appropriate.
+- Fork the project.
+- Make your feature addition or bug fix.
+- Add tests for it. This is important so that we don't break it in a future version unintentionally.
+- Commit. Do not alter Dockerfile, version, or history. (If you want to have your own version, that is fine, but bump version in a commit by itself that can be ignored when it is pulled.)
+- Submit a pull request.
