@@ -33,11 +33,6 @@ Controls:
 * press ESC to escape the game
 
 ## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Pull requests are welcome. Steps to contribute:
-
-- Fork the project.
-- Make your feature addition or bug fix.
-- Add tests for it. This is important so that we don't break it in a future version unintentionally.
-- Commit. 
-- Submit a pull request.
+Please make sure to update tests as appropriate.
