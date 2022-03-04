@@ -18,7 +18,7 @@ class Button():
 			self.yoff = self.text.get_height() // 2
 
 		self.clicked = False
-
+# Function that draws the background of the game
 	def draw(self, surface):
 		action = False
 
