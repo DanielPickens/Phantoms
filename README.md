@@ -47,8 +47,6 @@ Please make sure to update tests as appropriate.
 
 - Allow only valid movements on a level stage
 
-- Change repr functions to be Python expressions
-
 - Add str data model methods
 
 - Add new enemy class objects and attributes
