@@ -36,3 +36,19 @@ Controls:
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 
 Please make sure to update tests as appropriate.
+
+## Todo
+
+- Add function to track a tile's current position on a stage current_event 
+
+- Add logic to measure distance of tiles, where the measured distance would be the distance in the tile id's number and letter in alphabet for what units belong to a given tile
+
+- Allow for enemys to take turns in attack
+
+- Allow only valid movements on a level stage
+
+- Change repr functions to be Python expressions
+
+- Add str data model methods
+
+- Add new enemy class objects and attributes
