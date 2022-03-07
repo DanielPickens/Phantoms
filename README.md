@@ -43,7 +43,7 @@ Please make sure to update tests as appropriate.
 
 - Add logic to measure distance of tiles, where the measured distance would be the distance in the tile id's number and letter in alphabet for what units belong to a given tile
 
-- Allow for enemys to take turns in attack
+- Allow for enemies to take turns in attack
 
 - Allow only valid movements on a level stage
 
