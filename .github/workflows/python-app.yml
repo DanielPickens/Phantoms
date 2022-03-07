@@ -1,4 +1,4 @@
-name: ci Phantoms - python
+name: ci Phantoms - python-app
 on: [push]
 jobs:
   check-pygame:
