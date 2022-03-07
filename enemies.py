@@ -6,7 +6,7 @@ TILE_SIZE = 16
 
 pygame.mixer.init()
 bullet_fx = pygame.mixer.Sound('Sounds/ghost_shot.mp3')
-#inializes ghost enemy class 
+#initializes ghost enemy class 
 class Ghost(pygame.sprite.Sprite):
 	def __init__(self, x, y, win):
 		super(Ghost, self).__init__()
