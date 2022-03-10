@@ -2,6 +2,15 @@ import pygame
 
 WIDTH, HEIGHT = 640, 384
 
+PLAYER_SIZE = 24
+JUMP_HEIGHT = 15
+SPEED = 3
+VELOCITY = JUMP_HEIGHT
+MASS = 1
+GRAVITY = 1
+GRENADES = 5
+HEALTH = 100
+
 class Player(pygame.sprite.Sprite):
 	def __init__(self, x, y):
 		super(Player, self).__init__()
@@ -15,7 +24,7 @@ class Player(pygame.sprite.Sprite):
 		self.death_list = []
 		self.hit_list = []
 
-		self.size = 24
+		self.size = PLAYER_SIZE
 
 		for i in range(1,3):
 			image = pygame.image.load(f'Assets/Player/PlayerIdle{i}.png')
@@ -47,11 +56,11 @@ class Player(pygame.sprite.Sprite):
 		self.hit_index = 0
 		self.fall_index = 0
 
-		self.jump_height = 15
-		self.speed = 3
-		self.vel = self.jump_height
-		self.mass = 1
-		self.gravity = 1
+		self.jump_height = JUMP_HEIGHT
+		self.speed = SPEED
+		self.vel = VELOCITY
+		self.mass = MASS
+		self.gravity = GRAVITY
 
 		self.counter = 0
 		self.direction = 0
@@ -61,8 +70,8 @@ class Player(pygame.sprite.Sprite):
 		self.hit = False
 		self.jump = False
 
-		self.grenades = 5
-		self.health = 100
+		self.grenades = GRENADES
+		self.health = HEALTH
 
 		self.image = self.idle_list[self.idle_index]
 		self.image = pygame.transform.scale(self.image, (24, 24))
@@ -147,7 +156,8 @@ class Player(pygame.sprite.Sprite):
 		if moving_right:
 			self.dx = self.speed
 			self.direction = 1
-		if (not moving_left and not moving_right) and not self.jump:
+		if ((not moving_left and not moving_right) or (moving_left and moving_right)) and not self.jump:
+			self.dx = 0
 			self.direction = 0
 			self.walk_index = 0
 
