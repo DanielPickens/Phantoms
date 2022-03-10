@@ -2,6 +2,7 @@ import pygame
 
 WIDTH, HEIGHT = 640, 384
 
+PLAYER_SIZE = 24
 JUMP_HEIGHT = 15
 SPEED = 3
 VELOCITY = JUMP_HEIGHT
@@ -23,7 +24,7 @@ class Player(pygame.sprite.Sprite):
 		self.death_list = []
 		self.hit_list = []
 
-		self.size = 24
+		self.size = PLAYER_SIZE
 
 		for i in range(1,3):
 			image = pygame.image.load(f'Assets/Player/PlayerIdle{i}.png')
@@ -155,7 +156,8 @@ class Player(pygame.sprite.Sprite):
 		if moving_right:
 			self.dx = self.speed
 			self.direction = 1
-		if (not moving_left and not moving_right) and not self.jump:
+		if ((not moving_left and not moving_right) or (moving_left and moving_right)) and not self.jump:
+			self.dx = 0
 			self.direction = 0
 			self.walk_index = 0
 
