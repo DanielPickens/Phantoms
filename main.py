@@ -350,7 +350,6 @@ while running:
 					if not p.hit:
 						p.hit = True
 						p.health -= 20
-						print(p.health)
 					bullet.kill()
 
 		#if statement that evaluates if player is alive, it will execute the body of health defined if only when the test condition is alive with health <= 40 
