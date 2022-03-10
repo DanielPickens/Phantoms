@@ -8,7 +8,7 @@ pygame.mixer.init()
 grenade_blast_fx = pygame.mixer.Sound('Sounds/grenade blast.wav')
 grenade_blast_fx.set_volume(0.6)
 
-#Initializes the bullet class object
+#Initializes the Bullet class
 class Bullet(pygame.sprite.Sprite):
 	def __init__(self, x, y, direction, color, type_, win):
 		super(Bullet, self).__init__()
