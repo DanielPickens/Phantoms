@@ -29,7 +29,7 @@ MOON = pygame.transform.scale(pygame.image.load('assets/moon.png'), (300, 220))
 title_font = "Fonts/Aladin-Regular.ttf"
 instructions_font = 'Fonts/BubblegumSans-Regular.ttf'
 
-## message function for about screen
+## message variables for about screen
 phantoms = Message(WIDTH//2 + 50, HEIGHT//2 - 90, 90, "Phantoms", title_font, (255, 255, 255), win)
 left_key = Message(WIDTH//2 + 10, HEIGHT//2 - 90, 20, "Press left arrow key to go left", instructions_font, (255, 255, 255), win)
 right_key = Message(WIDTH//2 + 10, HEIGHT//2 - 65, 20, "Press right arrow key to go right", instructions_font, (255, 255, 255), win)
@@ -63,7 +63,7 @@ exit_btn = Button(WIDTH//2 - bwidth//4, HEIGHT//2 + 105, ButtonBG, 0.5, exit, 10
 main_menu_btn = Button(WIDTH//2 - bwidth//4, HEIGHT//2 + 130, ButtonBG, 0.5, main_menu, 20)
 
 
-# takes in a level number and returns a tuple of the level's length and the world data
+
 pygame.mixer.music.load('Sounds/mixkit-complex-desire-1093.mp3')
 pygame.mixer.music.play(loops=-1)
 pygame.mixer.music.set_volume(0.5)
@@ -350,10 +350,9 @@ while running:
 					if not p.hit:
 						p.hit = True
 						p.health -= 20
-						print(p.health)
 					bullet.kill()
 
-		
+		#if statement that evaluates if player is alive, it will execute the body of health defined if only when the test condition is alive with health <= 40 
 
 		if p.alive:
 			color = (0, 255, 0)

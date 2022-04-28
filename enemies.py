@@ -6,7 +6,7 @@ TILE_SIZE = 16
 
 pygame.mixer.init()
 bullet_fx = pygame.mixer.Sound('Sounds/ghost_shot.mp3')
-
+#initializes ghost enemy class 
 class Ghost(pygame.sprite.Sprite):
 	def __init__(self, x, y, win):
 		super(Ghost, self).__init__()
@@ -24,7 +24,7 @@ class Ghost(pygame.sprite.Sprite):
 		self.death_list = []
 
 		for i in range(1,6):
-			image = pygame.image.load(f'Assets/Ghost/Enemywalk{i}.png')
+			image = pygame.image.load(f'Assets/Ghost/Enemywalk{i}.png') # declared variable calls ghost asset as a pass reference parameter argument 
 			right = right = pygame.transform.scale(image, (self.size, self.size))
 			left = pygame.transform.flip(right, True, False)
 			self.walk_right.append(right)
