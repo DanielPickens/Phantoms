@@ -10,7 +10,17 @@ class Text:
 	def render(self, text, color):
 		image = self.font.render(text, False, color)
 		return image
-
+	def update(self, text=None, color=None, shadow=True):
+		if text:
+			if not color:
+				color = self.color
+			self.image = self.font.render(f"{text}", False, color)
+			self.rect = self.image.get_rect(center=(self.x,self.y))
+			self.shadow = self.font.render(f"{text}", False, self.shadow_color)
+			self.shadow_rect = self.image.get_rect(center=(self.x+2,self.y+2))
+		if shadow:
+			self.win.blit(self.shadow, self.shadow_rect)
+		self.win.blit(self.image, self.rect)
 class Message:
 	''' This class blits an image at given position '''
 	def __init__(self, x, y, size, text, font, color, win):
