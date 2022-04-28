@@ -353,7 +353,7 @@ while running:
 						print(p.health)
 					bullet.kill()
 
-		#variable to check if player is dead
+		
 
 		if p.alive:
 			color = (0, 255, 0)

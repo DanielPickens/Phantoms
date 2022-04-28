@@ -23,7 +23,7 @@ class Bullet(pygame.sprite.Sprite):
 		self.radius = 4
 		
 		self.rect = pygame.draw.circle(self.win, self.color, (self.x, self.y), self.radius)
-
+	#update's the bullet's position on the screen
 	def update(self, screen_scroll, world):
 		if self.direction == -1:
 			self.x -= self.speed + screen_scroll
