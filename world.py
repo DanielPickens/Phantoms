@@ -68,7 +68,7 @@ class World:
 		for tile in self.decor_list:
 			tile[1][0] += screen_scroll
 			win.blit(tile[0], tile[1])
-
+	
 
 class Ladder(pygame.sprite.Sprite):
 	def __init__(self, x, y, tile_data):
