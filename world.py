@@ -130,6 +130,21 @@ class Potion(pygame.sprite.Sprite):
 	def draw(self, win):
 		win.blit(self.image, self.rect)
 
+class Antidote(pygame.sprite.Sprite):
+	def __init__(self, x, y, tile_data):
+		super(Antidote, self).__init__()
+
+		self.image = tile_data[0]
+		self.rect = tile_data[1]
+		self.rect.x = x
+		self.rect.y = y
+
+	def update(self, screen_scroll):
+		self.rect.x += screen_scroll
+
+	def draw(self, win):
+		win.blit(self.image, self.rect)
+		
 class Exit(pygame.sprite.Sprite):
 	def __init__(self, x, y, tile_data):
 		super(Exit, self).__init__()
