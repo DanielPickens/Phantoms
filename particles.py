@@ -141,4 +141,66 @@ class Dust(pygame.sprite.Sprite):
 		else:
 			self.kill()
 
+class WaterDroplet(pygame.sprite.Sprite):
+	def __init__(self, x, y, win):
+		super(WaterDroplet, self).__init__()
+		self.x = x
+		self.y = y
+		self.win = win
+
+		self.size = random.randint(4,9)
+		self.life = 40
+		self.lifetime = 0
+
+		self.x_vel = random.randrange(-4, 4)
+		self.y_vel = random.randrange(-4, 4)
+
+		self.color = 150
+
+	def update (self, screen_scroll):
+		self.size -= 0.2
+		self.lifetime += 1
+		self.color -= 2
+		if self.lifetime <= self.life:
+
+			self.x += self.x_vel + screen_scroll
+			self.y += self.y_vel
+			s = int(self.size)
+
+			pygame.draw.rect(self.win, (self.color, self.color, self.color), (self.x, self.y,s,s))
+		else:
+			self.kill()
+
+class Graupel(pygame.sprite.Sprite):
+	def __init__(self, x, y, win):
+		super(Graupel, self).__init__()
+		self.x = x
+		self.y = y
+		self.win = win
+
+		self.size = random.randint(4,9)
+		self.life = 40
+		self.lifetime = 0
+
+		self.x_vel = random.randrange(-4, 4)
+		self.y_vel = random.randrange(-4, 4)
+
+		self.color = 150
+
+	def update (self, screen_scroll):
+		self.size -= 0.2
+		self.lifetime += 1
+		self.color -= 2
+		if self.lifetime <= self.life:
+			
+			self.x += self.x_vel + screen_scroll
+			self.y += self.y_vel
+			s = int(self.size)
+
+			pygame.draw.rect(self.win, (self.color, self.color, self.color), (self.x, self.y,s,s))
+		else:
+
+			self.kill()
+			
+
 				
