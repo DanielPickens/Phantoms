@@ -98,3 +98,5 @@ class Ghost(pygame.sprite.Sprite):
 
 	def draw(self, win):
 		win.blit(self.image, self.rect)
+
+
