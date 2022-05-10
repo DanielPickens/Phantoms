@@ -89,8 +89,9 @@ water_group = pygame.sprite.Group()
 diamond_group = pygame.sprite.Group()
 potion_group = pygame.sprite.Group()
 exit_group = pygame.sprite.Group()
+mushroom_group = pygame.sprite.Group()
 
-objects_group = [water_group, diamond_group, potion_group, enemy_group, exit_group]
+objects_group = [water_group, diamond_group, potion_group, enemy_group, exit_group, mushroom_group]
 
 p_image = pygame.transform.scale(pygame.image.load('Assets/Player/PlayerIdle1.png'), (32,32))
 p_rect = p_image.get_rect(center=(470, 200))
@@ -120,6 +121,7 @@ def reset_level(level):
 	water_group.empty()
 	diamond_group.empty()
 	potion_group.empty()
+	mushroom_group.empty()
 	exit_group.empty()
 
 	# LOAD LEVEL WORLD
@@ -277,6 +279,8 @@ while running:
 		diamond_group.draw(win)
 		potion_group.update(screen_scroll)
 		potion_group.draw(win)
+		mushroom_group.update(screen_scroll)
+		mushroom_group.draw(win)
 		exit_group.update(screen_scroll)
 		exit_group.draw(win)
 
@@ -336,7 +340,14 @@ while running:
 				health_fx.play()
 				if p.health > 100:
 					p.health = 100
-
+		mushroom = pygame.sprite.spritecollide(p, mushroom_group, False)
+		if mushroom:
+			if p.health < 100:
+				mushroom[0].kill()
+				p.health += 30
+				health_fx.play()
+				if p.health > 100:
+					p.health = 100
 
 		for bullet in bullet_group:
 			enemy =  pygame.sprite.spritecollide(bullet, enemy_group, False)
