@@ -57,6 +57,10 @@ class World:
 					if tile == 60:
 						enemy = Ghost(x*TILE_SIZE, y*TILE_SIZE, win)
 						self.objects_group[3].add(enemy)
+					if tile == 61:
+						mushroom = Mushroom(x*TILE_SIZE, y*TILE_SIZE, tile_data)
+						self.objects_group[5].add(mushroom)
+
 
 	def draw_world(self, win, screen_scroll):
 		for tile in self.ground_list:
@@ -129,7 +133,21 @@ class Potion(pygame.sprite.Sprite):
 
 	def draw(self, win):
 		win.blit(self.image, self.rect)
+class Mushroom(pygame.sprite.Sprite):
+	def __init__(self, x, y, tile_data):
+		super(Mushroom, self).__init__()
 
+		self.image = tile_data[0]
+		self.rect = tile_data[1]
+		self.rect.x = x
+		self.rect.y = y
+
+	def update(self, screen_scroll):
+		self.rect.x += screen_scroll
+
+	def draw(self, win):
+		win.blit(self.image, self.rect)
+		
 class Antidote(pygame.sprite.Sprite):
 	def __init__(self, x, y, tile_data):
 		super(Antidote, self).__init__()
