@@ -87,6 +87,7 @@ explosion_group = pygame.sprite.Group()
 enemy_group = pygame.sprite.Group()
 water_group = pygame.sprite.Group()
 diamond_group = pygame.sprite.Group()
+ruby_group = pygame.sprite.Group()
 potion_group = pygame.sprite.Group()
 exit_group = pygame.sprite.Group()
 mushroom_group = pygame.sprite.Group()
@@ -122,6 +123,7 @@ def reset_level(level):
 	diamond_group.empty()
 	potion_group.empty()
 	mushroom_group.empty()
+	ruby_group.empty()
 	exit_group.empty()
 
 	# LOAD LEVEL WORLD
@@ -279,6 +281,8 @@ while running:
 		diamond_group.draw(win)
 		potion_group.update(screen_scroll)
 		potion_group.draw(win)
+		ruby_group.update(screen_scroll)
+		ruby_group.draw(win)
 		mushroom_group.update(screen_scroll)
 		mushroom_group.draw(win)
 		exit_group.update(screen_scroll)
@@ -315,7 +319,6 @@ while running:
 		if pygame.sprite.spritecollide(p, diamond_group, True):
 			diamond_fx.play()
 			pass
-
 		if pygame.sprite.spritecollide(p, exit_group, False):
 			next_level_fx.play()
 			level += 1
