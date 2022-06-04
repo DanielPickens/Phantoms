@@ -315,6 +315,11 @@ while running:
 		if pygame.sprite.spritecollide(p, water_group, False):
 			p.health = 0
 			level = 1
+		
+		if pygame.sprite.spritecollide(p, ruby_group, False):
+			p.health = 0
+			level = 1
+
 
 		if pygame.sprite.spritecollide(p, diamond_group, True):
 			diamond_fx.play()
@@ -351,6 +356,15 @@ while running:
 				health_fx.play()
 				if p.health > 100:
 					p.health = 100
+		ruby = pygame.sprite.spritecollide(p, ruby_group, False)
+		if ruby:
+			if p.health < 100:
+				ruby[0].kill()
+				p.health += 50
+				health_fx.play()
+				if p.health > 100:
+					p.health = 100
+
 
 		for bullet in bullet_group:
 			enemy =  pygame.sprite.spritecollide(bullet, enemy_group, False)

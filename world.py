@@ -3,7 +3,7 @@ import pygame
 
 from enemies import Ghost
 
-NUM_TILES = 60
+NUM_TILES = 61
 TILE_SIZE = 16
 
 img_list = []
