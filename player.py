@@ -185,3 +185,52 @@ class Player(pygame.sprite.Sprite):
 		
 	def draw(self, win):
 		win.blit(self.image, self.rect)
+
+	def check_left(self, x, y):
+		""" checks/adjusts environment collision when player is moving to the left """
+		if self.rect.left < x:
+			self.rect.left = x
+		if self.rect.top < y:
+			self.rect.top = y
+		if self.rect.bottom > y + self.size:
+			self.rect.bottom = y + self.size
+		if self.rect.right > x + self.size:
+			self.rect.right = x + self.size
+		return self.rect.left, self.rect.top, self.rect.bottom, self.rect.right
+
+	def check_right(self, x, y):
+		""" checks/adjusts environment collision when player is moving to the right """
+		if self.rect.right > x:
+			self.rect.right = x
+		if self.rect.top < y:
+			self.rect.top = y
+		if self.rect.bottom > y + self.size:
+			self.rect.bottom = y + self.size
+		if self.rect.left < x - self.size:
+			self.rect.left = x - self.size
+		return self.rect.left, self.rect.top, self.rect.bottom, self.rect.right
+
+	def check_top(self, x, y):
+		""" checks/adjusts environment collision when player is moving to the top """
+		if self.rect.left < x:
+			self.rect.left = x
+		if self.rect.top < y:
+			self.rect.top = y
+		if self.rect.bottom > y + self.size:
+			self.rect.bottom = y + self.size
+		if self.rect.right > x + self.size:
+			self.rect.right = x + self.size
+		return self.rect.left, self.rect.top, self.rect.bottom, self.rect.right
+
+	def check_bottom(self, x, y):
+		""" checks/adjusts environment collision when zombie is moving to the bottom """
+
+		if self.rect.left < x:
+			self.rect.left = x
+		if self.rect.top < y:
+			self.rect.top = y
+		if self.rect.bottom > y + self.size:
+			self.rect.bottom = y + self.size
+		if self.rect.right > x + self.size:
+			self.rect.right = x + self.size
+		return self.rect.left, self.rect.top, self.rect.bottom, self.rect.right

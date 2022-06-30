@@ -198,6 +198,8 @@ class Goblin(pygame.sprite.Sprite):
 	def draw(self, win):
 		win.blit(self.image, self.rect)
 
+
+
 class Zombie(pygame.sprite.Sprite):
 	def __init__(self, x, y, win):
 		super(Zombie, self).__init__()
@@ -296,4 +298,14 @@ class Zombie(pygame.sprite.Sprite):
 
 	def draw(self, win):
 		win.blit(self.image, self.rect)
-	
+	# checks if the zombie is hit by a bullet and if so, reduces the zombie's health accordinging to the bullet's damage rate
+	def check_collision(self, p):
+		if self.alive:
+			if self.rect.colliderect(p.rect):
+				p.health -= 10
+				self.hit = True
+				return True
+			else:
+				return False
+		else:
+			return False
