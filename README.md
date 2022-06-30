@@ -39,11 +39,11 @@ Please make sure to update tests as appropriate.
 
 ## Todo
 
-[ ] - Add tile assests for passed in class variable object references for zombie class
+[] - Add tile assests for passed in class variable object references for zombie class
 
-[ ] Need to check the collisions for new zombie class against rock and stone
+[] Need to check the collisions for new zombie class against rock and stone
 
-[ ] Need to check the collisions against ground
+[] Need to check the collisions against ground
 
 
 
