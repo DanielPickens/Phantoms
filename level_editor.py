@@ -172,13 +172,13 @@ while running:
 
 	if save_button.draw(win):
 		# If the save button is pressed, save the world data to a file
-		if os.path.exists(f'levels/level{current_level}_data'):
-			with open(f'levels/level{current_level}_data', 'rb') as pickle_in:
+		if os.path.exists(f'levels/level{current_level}_data'): # sets the file name to the current level
+			with open(f'levels/level{current_level}_data', 'rb') as pickle_in: # reads the file and loads it into the world_data variable
 				data = pickle.load(pickle_in)
-			with open(f'levels/level{current_level}_backup_data', 'wb') as pickle_out:
+			with open(f'levels/level{current_level}_backup_data', 'wb') as pickle_out: # creates a backup file
 				pickle.dump(data, pickle_out)
 
-		pickle_out = open(f'levels/level{current_level}_data', 'wb')
+		pickle_out = open(f'levels/level{current_level}_data', 'wb') # creates a new file from the world_data variable
 		pickle.dump(world_data, pickle_out)
 		pickle_out.close()
 	if load_button.draw(win):

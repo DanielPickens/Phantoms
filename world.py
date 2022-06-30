@@ -2,6 +2,7 @@ import pickle
 import pygame
 
 from enemies import Ghost
+from enemies import Zombie
 
 NUM_TILES = 61
 TILE_SIZE = 16
@@ -63,6 +64,9 @@ class World:
 					if tile == 62:
 						ruby = Ruby(x*TILE_SIZE, y*TILE_SIZE, tile_data)
 						self.objects_group[6].add(ruby)
+					if tile == 63:
+						enemy = Zombie(x*TILE_SIZE, y*TILE_SIZE, win)
+						self.objects_group[7].add(enemy)
 	def draw_world(self, win, screen_scroll):
 		for tile in self.ground_list:
 			tile[1][0] += screen_scroll

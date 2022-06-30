@@ -39,14 +39,11 @@ Please make sure to update tests as appropriate.
 
 ## Todo
 
-- Add function to track a tile's current position on a stage current_event 
+[ ] - Add tile assests for passed in class variable object references for zombie class
 
-- Add logic to measure distance of tiles, where the measured distance would be the distance in the tile id's number and letter in alphabet for what units belong to a given tile
+[ ] Need to check the collisions for new zombie class against rock and stone
 
-- Allow for enemies to take turns in attack
+[ ] Need to check the collisions against ground
 
-- Allow only valid movements on a level stage
 
-- Add str data model methods
 
-- Add new enemy class objects and attributes
