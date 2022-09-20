@@ -101,6 +101,7 @@ class Player(pygame.sprite.Sprite):
 				# above ground
 				elif self.vel <= 0 or self.vel == self.jump_height:
 					dy = tile[1].top - self.rect.bottom
+		
 
 
 		return dx, dy
