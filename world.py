@@ -207,4 +207,45 @@ def load_level(level):
 					data[y][x] += 1
 	return data, len(data[0])
 
+#class that fixes player collisions with object platforms
+class ColumnCollisionWithPlayer():
+	def __init__(self, player, object_group):
+		self.player = player
+		self.object_group = object_group
+
+	def update(self):
+		#check for collision with objects
+		collision_list = pygame.sprite.spritecollide(self.player, self.object_group, False)
+		for obj in collision_list:
+			#check if player is above object
+			if self.player.rect.bottom > obj.rect.top and self.player.rect.bottom < obj.rect.bottom:
+				self.player.rect.bottom = obj.rect.top
+				self.player.y_vel = 0
+				self.player.jumping = False
+			#check if player is below object
+			elif self.player.rect.top < obj.rect.bottom:
+				self.player.rect.top = obj.rect.bottom
+				self.player.y_vel = 0
+			#check if player is right of object
+			if self.player.rect.right > obj.rect.left and self.player.rect.right < obj.rect.right:
+				self.player.rect.right = obj.rect.left
+			#check if player is left of object
+			elif self.player.rect.left < obj.rect.right:
+				self.player.rect.left = obj.rect.right
+
+			for playrer in obj(self.player):
+				if playrer.rect.bottom > obj.rect.top and playrer.rect.bottom < obj.rect.bottom:
+					playrer.rect.bottom = obj.rect.top
+					playrer.y_vel = 0
+					playrer.jumping = False
+				#check if player is below object
+				elif playrer.rect.top < obj.rect.bottom:
+					playrer.rect.top = obj.rect.bottom
+					playrer.y_vel = 0
+				#check if player is right of object
+				if playrer.rect.right > obj.rect.left and playrer.rect.right < obj.rect.right:
+					playrer.rect.right = obj.rect.left
+				#check if player is left of object
+				elif playrer.rect.left < obj.rect.right:
+					playrer.rect.left = obj.rect.right
 

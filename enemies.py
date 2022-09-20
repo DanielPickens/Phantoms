@@ -309,3 +309,50 @@ class Zombie(pygame.sprite.Sprite):
 				return False
 		else:
 			return False
+	
+# 	def check_bullet_collision(self, bullet_group):
+# 		if self.alive:
+# 			for bullet in bullet_group:
+# 				if self.rect.colliderect(bullet.rect):
+# 					self.health -= bullet.damage
+# 					bullet.kill()
+# 					self.hit = True
+# 					return True
+# 			return False
+# 		else:
+# 			return False
+
+# class Bullet(pygame.sprite.Sprite):
+# 	def __init__(self, x, y, direction, color, speed, win):
+# 		super(Bullet, self).__init__()
+
+# 		self.x = x
+# 		self.y = y
+# 		self.direction = direction
+# 		self.color = color
+# 		self.speed = speed
+# 		self.win = win
+
+# 		self.image = pygame.Surface((5, 5))
+# 		self.image.fill(self.color)
+# 		self.rect = self.image.get_rect(center=(self.x, self.y))
+
+# 	def update(self, screen_scroll):
+# 		self.rect.x += (self.direction * self.speed) + screen_scroll
+
+# 	def draw(self, win):
+# 		win.blit(self.image, self.rect)
+
+
+# 	class EnemyCollisionChecks(pygame.sprite.Sprite):
+# 		def __init__(self, enemy_group, bullet_group, p):
+# 			super(EnemyCollisionChecks, self).__init__()
+# 			self.enemy_group = enemy_group
+# 			self.bullet_group = bullet_group
+# 			self.p = p
+
+# 		def update(self, screen_scroll):
+# 			for enemy in self.enemy_group:
+# 				enemy.check_collision(self.p)
+# 				enemy.check_bullet_collision(self.bullet_group)
+# 				enemy.update(screen_scroll, self.bullet_group, self.p)
