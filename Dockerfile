@@ -10,8 +10,6 @@ RUN pip3 install --upgrade pip
 
 
 
-RUN pip install -r requirements.txt
-
 FROM base as debug
 
 RUN pip3 install debugpy
