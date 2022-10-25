@@ -8,7 +8,7 @@ RUN apk add --no-cache --virtual .build-deps \
 
 RUN pip3 install --upgrade pip
 
-COPY requirements.txt .
+
 
 RUN pip install -r requirements.txt
 
