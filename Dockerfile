@@ -1,13 +1,14 @@
-from python:3
+FROM python:3.8-alpine as base
 
-RUN apt-get update && apt-get -y install --no-install-recommends \
-    libfreetype6-dev \
-    libportmidi-dev \
-    libsdl2-dev \
-    libsdl2-image-dev \
-    libsdl2-mixer-dev \
-    libsdl2-ttf-dev \
-    && rm -rf /var/lib/apt/lists/*
+ENV PYTHONUNBUFFERED 1
+
+RUN apk add --no-cache --virtual .build-deps \
+    ca-certificates gcc postgresql-dev linux-headers musl-dev libffi-dev jpeg-dev zlib-dev geos sdl2\ 
+    && rm -rf /var/cache/apk/*
+
+RUN pip3 install --upgrade pip
 
 
-RUN pip3 install pygame
+FROM base as debug
+
+RUN pip3 install debugpy
