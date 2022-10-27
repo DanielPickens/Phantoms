@@ -1,15 +1,22 @@
-from python:3
-
-RUN apt-get update && apt-get -y install --no-install-recommends \
-    libfreetype6-dev \
-    libportmidi-dev \
-    libsdl2-dev \
-    libsdl2-image-dev \
-    libsdl2-mixer-dev \
-    libsdl2-ttf-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip3 install pygame
+FROM python:3
+RUN apt-get update \
+    && apt-get install -y x11-apps \
+    && apt-get -y install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev \
+    && apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev \
+    && apt-get -y install locales \
+    && localedef -f UTF-8 -i ja_JP ja_JP.UTF-8 \
+    && pip install --upgrade pip \
+    && pip install --upgrade setuptools \
+    && pip install pygame
 
 
-CMD ["python3"]
+ARG DOCKER_UID=1000
+ARG DOCKER_USER=docker
+ARG DOCKER_PASSWORD=docker
+RUN useradd -m \
+    --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
+    && echo ${DOCKER_USER}:${DOCKER_PASSWORD} | chpasswd
+
+USER ${DOCKER_USER}
+
+WORKDIR /home/${DOCKER_USER}/app
