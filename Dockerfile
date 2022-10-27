@@ -1,7 +1,7 @@
 
-FROM python:3.8-alpine as base
+FROM python:3.8
 
-ENV PYTHONUNBUFFERED 1
+
 
 
 
