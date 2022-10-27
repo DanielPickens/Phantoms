@@ -1,5 +1,15 @@
-FROM python:3.8-alpine as base
+from python:3
 
-RUN apt-get update && apt-get install -y python3 build-essential python3-pip python3-dev libsdl-image1.2-dev libsdl-mixer1.2-dev \
-libsdl-ttf2.0-dev libsdl1.2-dev libsmpeg-dev python-numpy subversion \
-libportmidi-dev libfreetype6-dev libavformat-dev libswscale-dev mercurial && pip3 install hg+http://bitbucket.org/pygame/pygame
+RUN apt-get update && apt-get -y install --no-install-recommends \
+    libfreetype6-dev \
+    libportmidi-dev \
+    libsdl2-dev \
+    libsdl2-image-dev \
+    libsdl2-mixer-dev \
+    libsdl2-ttf-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install pygame
+
+
+CMD ["python3"]
