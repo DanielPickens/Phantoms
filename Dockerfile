@@ -1,4 +1,4 @@
-FROM python:3 AS build
+FROM python:3
 
 RUN apt-get update && apt-get -y install --no-install-recommends \
     libfreetype6-dev \
@@ -9,5 +9,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     libsdl2-ttf-dev \
     && rm -rf /var/lib/apt/lists/*
 
-
 RUN pip3 install pygame
+
+
+CMD ["python3", "pygame"]
