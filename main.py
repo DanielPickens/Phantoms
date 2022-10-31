@@ -364,7 +364,27 @@ while running:
 				health_fx.play()
 				if p.health > 100:
 					p.health = 100
+		# check for collision with enemies
+		if pygame.sprite.spritecollide(p, enemy_group, False):
+			p.health = 0
+			level = 1
 
+		#check for collisions in moving_left and moving_right
+
+		if moving_left:
+			for tile in w.obstacle_list:
+				if p.rect.colliderect(tile):
+					p.rect.left = tile.rect.right
+					p.dx = 0
+					moving_left = False
+		if moving_right:
+			for tile in w.obstacle_list:
+				if p.rect.colliderect(tile):
+					p.rect.right = tile.rect.left
+					p.dx = 0
+					moving_right = False
+
+		# check for collisions in  bullet_group
 
 		for bullet in bullet_group:
 			enemy =  pygame.sprite.spritecollide(bullet, enemy_group, False)
@@ -379,6 +399,37 @@ while running:
 						p.hit = True
 						p.health -= 20
 					bullet.kill()
+
+		# check for collisions in diamond_group
+
+		for diamond in diamond_group:
+			diamond =  pygame.sprite.spritecollide(diamond, enemy_group, False)
+			if diamond and diamond.type == 1:
+				if not diamond[0].hit:
+					diamond[0].hit = True
+					diamond[0].health -= 50
+				diamond.kill()
+			if diamond.rect.colliderect(p):
+				if diamond.type == 2:
+					if not p.hit:
+						p.hit = True
+						p.health -= 20
+					diamond.kill()
+		# check for collisions in trail_group
+
+		for trail in trail_group:
+			trail =  pygame.sprite.spritecollide(trail, enemy_group, False)
+			if trail and trail.type == 1:
+				if not trail[0].hit:
+					trail[0].hit = True
+					trail[0].health -= 50
+				trail.kill()
+			if trail.rect.colliderect(p):
+				if trail.type == 2:
+					if not p.hit:
+						p.hit = True
+						p.health -= 20
+					trail.kill()
 
 		#if statement that evaluates if player is alive, it will execute the body of health defined if only when the test condition is alive with health <= 40 
 
