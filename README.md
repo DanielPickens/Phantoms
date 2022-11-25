@@ -4,7 +4,7 @@
 
 Phantoms is my small platformer game made with pygame. The game uses tile-based physics, along with side-scrolling and parallax animations.
 
-![Screenshot 2022-03-02 130256](https://user-images.githubusercontent.com/72703981/156440654-28aedc0b-9f68-44f9-bf5f-1e040c115e6a.png)
+
 
 
 ## Quick Start
