@@ -3,6 +3,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
 Phantoms is my small platformer game made with pygame. The game uses tile-based physics, along with side-scrolling and parallax animations.
+
 ![image](https://user-images.githubusercontent.com/72703981/204444655-2a6a5b7e-b530-4067-8137-336a9be731fe.png)
 
 
